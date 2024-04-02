@@ -21,12 +21,13 @@ export const useFetchData = () => {
         const navBarId = navBarSection.sys.id;
 
         const socialLink = socials.map((item) => {
-          const { socialImage, socialUrl } = item.fields;
+          const { socialTitle, socialImage, socialUrl } = item.fields;
           const socialId = item.sys.id;
           const socialImg = socialImage?.fields?.file?.url;
 
           return {
             socialId,
+            socialTitle,
             socialImg,
             socialUrl,
           };
@@ -51,26 +52,30 @@ export const useFetchData = () => {
           options
         );
 
+        const imageGalleryId = imageGallerySection.sys.id;
+
         const { imageGalleryCards } = imageGallerySection.fields;
 
         const imageGallery = imageGalleryCards.map((item) => {
+          const imageGalleryCardsId = item.sys.id;
           const { imageCard, imageWidth } = item.fields;
           const imageRowContainer = imageCard.map((item) => {
             const { file, title } = item.fields;
             const singleImage = file?.url;
             const imgId = item.sys.id;
+            const imageTitle = title;
 
             return {
               imgId,
               singleImage,
-              title,
+              imageTitle,
               imageWidth,
             };
           });
 
           return {
             imageRowContainer,
-            // imageWidth,
+            imageGalleryCardsId,
           };
         });
 
@@ -83,11 +88,12 @@ export const useFetchData = () => {
           heroTitle,
           socialLink,
           imageGallery,
+          imageGalleryId,
         };
       });
 
       // console.log(response);
-      console.log(data);
+      // console.log(data);
 
       setData(data);
       setLoading(false);

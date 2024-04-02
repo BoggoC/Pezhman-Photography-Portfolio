@@ -1,6 +1,6 @@
 import NavBar from "./components/NavBar";
 import About from "./components/About";
-import LandingPage from "./components/LandingPage";
+import ImageGallery from "./components/ImageGallery";
 import "./App.css";
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <>
       <NavBar />
       <About />
-      <LandingPage />
+      <ImageGallery />
     </>
   );
 }
