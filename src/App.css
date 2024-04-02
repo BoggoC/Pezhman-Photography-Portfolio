@@ -36,3 +36,32 @@
     padding: 1.5rem;
   }
 }
+
+/* =====NavBar===== */
+
+.nav-bar {
+  /* display: flex; */
+}
+
+.links {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+.social-btn-container {
+  /* align-items: center; */
+  /* text-align: center; */
+}
+
+.social {
+  /* align-items: center;
+  text-align: center; */
+}
+
+.btn-container {
+  /* max-width: 24px; */
+  /* align-items: center; */
+  /* text-align: center; */
+  max-width: clamp(1.5rem, 3vw, 3rem);
+}
