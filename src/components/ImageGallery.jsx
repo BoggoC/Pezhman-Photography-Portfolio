@@ -1,4 +1,5 @@
 import { useFetchData } from "./fetchData";
+import NavBar from "./NavBar";
 
 const LandingPage = () => {
   const { loading, data } = useFetchData();
@@ -14,6 +15,7 @@ const LandingPage = () => {
   return (
     <section className="landing">
       <div className="wrapper">
+        <NavBar />
         {data.map((imageGalleryData) => {
           const { imageGallery, imageGalleryId } = imageGalleryData;
 

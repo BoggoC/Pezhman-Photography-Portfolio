@@ -55,8 +55,8 @@
 }
 
 .social {
-  /* align-items: center;
-  text-align: center; */
+  /* align-items: center; */
+  /* text-align: center; */
 }
 
 .btn-container {
@@ -64,4 +64,26 @@
   /* align-items: center; */
   /* text-align: center; */
   max-width: clamp(1.5rem, 3vw, 3rem);
+}
+
+/* =====About===== */
+
+.about {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 800px;
+}
+
+.about-title {
+  padding: 32px 0;
+}
+.about-text {
+  text-align: center;
+}
+
+.about-text a {
+  font-size: clamp(0.875rem, 1.5vw, 1.5rem);
+  font-weight: 300;
 }

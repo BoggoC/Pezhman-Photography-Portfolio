@@ -1,4 +1,5 @@
 import { useFetchData } from "./fetchData";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const { loading, data } = useFetchData();
@@ -15,12 +16,12 @@ const NavBar = () => {
     <nav className="nav-bar">
       <div className="wrapper">
         {data.map((navBar) => {
-          const { heroTitle, socialLink, about } = navBar;
+          const { navBarId, heroTitle, socialLink, about } = navBar;
           return (
-            <nav className="links">
-              <a href="" className="title">
+            <nav key={navBarId} className="links">
+              <Link to="/" className="title">
                 {heroTitle}
-              </a>
+              </Link>
               <div className="socials">
                 {socialLink.map((socials) => {
                   const { socialId, socialTitle, socialImg, socialUrl } =
@@ -43,9 +44,9 @@ const NavBar = () => {
                   );
                 })}
               </div>
-              <a href="" className="title">
+              <Link to="/aboutandcontact" className="title">
                 {about}
-              </a>
+              </Link>
             </nav>
           );
         })}
