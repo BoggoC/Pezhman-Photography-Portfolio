@@ -1,5 +1,6 @@
 import { useFetchData } from "./fetchData";
 import NavBar from "./NavBar";
+import Socials from "./Socials";
 
 const About = () => {
   const { loading, data } = useFetchData();
@@ -13,7 +14,7 @@ const About = () => {
   }
 
   return (
-    <section className="landing">
+    <section className="page">
       <div className="wrapper">
         <NavBar />
         {data.map((aboutComponent) => {
@@ -28,6 +29,7 @@ const About = () => {
             </section>
           );
         })}
+        <Socials />
       </div>
     </section>
   );

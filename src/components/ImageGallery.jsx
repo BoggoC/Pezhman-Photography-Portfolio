@@ -1,5 +1,7 @@
 import { useFetchData } from "./fetchData";
 import NavBar from "./NavBar";
+import BackToTopBtn from "./BackToTopBtn";
+import Socials from "./Socials";
 
 const LandingPage = () => {
   const { loading, data } = useFetchData();
@@ -13,7 +15,7 @@ const LandingPage = () => {
   }
 
   return (
-    <section className="landing">
+    <section className="page">
       <div className="wrapper">
         <NavBar />
         {data.map((imageGalleryData) => {
@@ -47,6 +49,8 @@ const LandingPage = () => {
                   </div>
                 );
               })}
+              <BackToTopBtn />
+              <Socials />
             </article>
           );
         })}
