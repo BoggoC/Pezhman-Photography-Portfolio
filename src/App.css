@@ -1,7 +1,7 @@
 .page {
   /* background-color: black; */
   /* background-color: #313131; */
-  background-color: #f6d9d5;
+  /* background-color: #f6d9d5; */
   /* background-color: #2e4045; */
 }
 
@@ -60,11 +60,15 @@
 
 /* =====About===== */
 
+.about-container {
+  height: 100vh;
+}
+
 .about {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+  position: fixed;
   transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
   max-width: 800px;
 }
 
@@ -93,14 +97,14 @@
 .showBtn {
   position: fixed;
   /* color: black; */
-  color: white;
+  /* color: white; */
   /* background-color: hotpink; */
   /* opacity: 55%; */
   border-radius: 50%;
   padding: 4px;
   right: -100px;
   bottom: 50px;
-  bottom: 100px;
+  /* bottom: 100px; */
   font-size: clamp(1.5rem, 3vw, 3rem);
   /* font-size: 35px; */
   cursor: pointer;
@@ -116,13 +120,15 @@
     transform: translateX(-150px);
   }
 }
+/* =====Socials===== */
 
 .socials-container {
-  position: fixed;
-  right: 50px;
-  bottom: 36px;
-  /* bottom: 45px; */
-  /* left: 50px; */
+  position: sticky;
+  max-width: clamp(1.5rem, 3vw, 3rem);
+  /* right: 50px; */
+  /* bottom: 36px; */
+  bottom: 40px;
+  left: 50px;
 }
 
 .socials {
@@ -136,5 +142,5 @@
 
 .btn-container {
   /* max-width: 35px; */
-  max-width: clamp(1.5rem, 3vw, 3rem);
+  max-width: clamp(1.5rem, 3vw, 2rem);
 }

@@ -14,8 +14,12 @@ export const useFetchData = () => {
         include: 10,
       });
       const data = response.items.map((item) => {
-        const { navBarSection, aboutAndContactSection, imageGallerySection } =
-          item.fields;
+        const {
+          navBarSection,
+          aboutAndContactSection,
+          imageGallerySection,
+          dynamicColoursSection,
+        } = item.fields;
 
         const { heroTitle, socials, about } = navBarSection.fields;
         const navBarId = navBarSection.sys.id;
@@ -79,6 +83,11 @@ export const useFetchData = () => {
           };
         });
 
+        const { dynamicTextColourHexCode, dynamicBackgroundColourHexCode } =
+          dynamicColoursSection.fields;
+        const textColor = dynamicTextColourHexCode;
+        const backgroundColor = dynamicBackgroundColourHexCode;
+
         return {
           aboutId,
           aboutAndContactTitle,
@@ -89,6 +98,8 @@ export const useFetchData = () => {
           socialLink,
           imageGallery,
           imageGalleryId,
+          textColor,
+          backgroundColor,
         };
       });
 

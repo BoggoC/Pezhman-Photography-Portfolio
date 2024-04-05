@@ -17,12 +17,17 @@ const LandingPage = () => {
   return (
     <section className="page">
       <div className="wrapper">
-        <NavBar />
         {data.map((imageGalleryData) => {
-          const { imageGallery, imageGalleryId } = imageGalleryData;
+          const { imageGallery, imageGalleryId, textColor, backgroundColor } =
+            imageGalleryData;
 
           return (
-            <article key={imageGalleryId} className="image-gallery">
+            <article
+              key={imageGalleryId}
+              className="image-gallery"
+              style={{ backgroundColor: `#${backgroundColor}` }}
+            >
+              <NavBar />
               {imageGallery.map((imageGalleryComponent) => {
                 const { imageRowContainer, imageGalleryCardsId } =
                   imageGalleryComponent;
@@ -49,7 +54,9 @@ const LandingPage = () => {
                   </div>
                 );
               })}
-              <BackToTopBtn />
+              <div className="logos" style={{ color: `#${textColor}` }}>
+                <BackToTopBtn />
+              </div>
               <Socials />
             </article>
           );

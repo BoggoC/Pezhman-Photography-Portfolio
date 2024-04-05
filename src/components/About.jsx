@@ -15,22 +15,34 @@ const About = () => {
 
   return (
     <section className="page">
-      <div className="wrapper">
-        <NavBar />
-        {data.map((aboutComponent) => {
-          const { aboutId, aboutAndContactTitle, aboutAndContactTxt } =
-            aboutComponent;
-          return (
-            <section key={aboutId} className="about">
-              <div className="about-title">
-                <h2>{aboutAndContactTitle}</h2>
+      {data.map((aboutComponent) => {
+        const {
+          aboutId,
+          aboutAndContactTitle,
+          aboutAndContactTxt,
+          backgroundColor,
+          textColor,
+        } = aboutComponent;
+        return (
+          <div
+            className="wrapper"
+            style={{ backgroundColor: `#${backgroundColor}` }}
+          >
+            <NavBar />
+            <div className="about-container">
+              <div key={aboutId} className="about">
+                <div className="about-title" style={{ color: `#${textColor}` }}>
+                  <h2>{aboutAndContactTitle}</h2>
+                </div>
+                <div className="about-text" style={{ color: `#${textColor}` }}>
+                  {aboutAndContactTxt}
+                </div>
               </div>
-              <div className="about-text">{aboutAndContactTxt}</div>
-            </section>
-          );
-        })}
-        <Socials />
-      </div>
+            </div>
+            <Socials />
+          </div>
+        );
+      })}
     </section>
   );
 };

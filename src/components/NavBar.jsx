@@ -13,23 +13,37 @@ const NavBar = () => {
   }
 
   return (
-    <nav className="nav-bar">
-      <div className="wrapper">
-        {data.map((navBar) => {
-          const { navBarId, heroTitle, about } = navBar;
-          return (
-            <nav key={navBarId} className="links">
-              <Link to="/" className="title">
-                {heroTitle}
-              </Link>
-              <Link to="/aboutandcontact" className="title">
-                {about}
-              </Link>
-            </nav>
-          );
-        })}
-      </div>
-    </nav>
+    <>
+      {data.map((navBar) => {
+        const { navBarId, heroTitle, about, textColor } = navBar;
+        return (
+          <nav
+            key={navBarId}
+            className="nav-bar"
+            style={{ backgroundcolor: `#${textColor}` }}
+          >
+            <div className="wrapper">
+              <nav className="links">
+                <Link
+                  to="/"
+                  className="title"
+                  style={{ color: `#${textColor}` }}
+                >
+                  {heroTitle}
+                </Link>
+                <Link
+                  to="/aboutandcontact"
+                  className="title"
+                  style={{ color: `#${textColor}` }}
+                >
+                  {about}
+                </Link>
+              </nav>
+            </div>
+          </nav>
+        );
+      })}
+    </>
   );
 };
 

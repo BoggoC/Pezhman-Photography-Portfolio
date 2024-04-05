@@ -13,10 +13,10 @@ const Socials = () => {
 
   return (
     <div className="socials-container">
-      {data.map((navBar) => {
-        const { socialLink } = navBar;
+      {data.map((socialNetworks) => {
+        const { socialLink, navBarId } = socialNetworks;
         return (
-          <div className="socials">
+          <div key={navBarId} className="socials">
             {socialLink.map((socials) => {
               const { socialId, socialTitle, socialImg, socialUrl } = socials;
               return (
