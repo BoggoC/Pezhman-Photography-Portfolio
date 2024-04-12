@@ -17,12 +17,8 @@ const NavBar = () => {
       {data.map((navBar) => {
         const { navBarId, heroTitle, about, textColor } = navBar;
         return (
-          <nav
-            key={navBarId}
-            className="nav-bar"
-            style={{ backgroundcolor: `#${textColor}` }}
-          >
-            <div className="wrapper">
+          <nav key={navBarId} className="nav-bar">
+            <div className="nav-bar-wrapper">
               <nav className="links">
                 <Link
                   to="/"

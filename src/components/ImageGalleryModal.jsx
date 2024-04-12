@@ -12,12 +12,17 @@ const ImageGalleryModal = ({
   onNext,
   onPrev,
   textColor,
+  backgroundColor,
 }) => {
   return (
     show && (
       <>
-        <div className="modal-backdrop" onClick={onClose} />
-        <div className="back-drop-btns">
+        <div
+          className="modal-backdrop"
+          onClick={onClose}
+          style={{ backgroundColor: `#${backgroundColor}` }}
+        />
+        <div className="back-drop-btns" style={{ color: `#${textColor}` }}>
           <div onClick={onClose} className="modal-close">
             <CgClose />
           </div>

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 
-function BackToTopBtn() {
+function BackToTopBtn({ textColor }) {
   const [showBtn, setShowBtn] = useState(false);
   const onScroll = () => {
     window.scrollY > 500 ? setShowBtn(true) : setShowBtn(false);
@@ -20,6 +20,7 @@ function BackToTopBtn() {
     <div className="scroll-up">
       <IoIosArrowUp
         className={showBtn ? "showBtn" : "hidden"}
+        style={{ color: `#${textColor}` }}
         onClick={scrollToTop}
       />
     </div>
