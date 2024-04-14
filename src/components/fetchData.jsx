@@ -63,22 +63,11 @@ export const useFetchData = () => {
         const imageGallery = imageGalleryCards.map((item) => {
           const imageGalleryCardsId = item.sys.id;
           const { imageCard, imageWidth, halfOrFullWIdth } = item.fields;
-          // const imageRowContainer = imageCard.map((item) => {
-          //   const { file, title } = item.fields;
           const singleImage = imageCard?.fields?.file?.url;
           const imgId = item.sys.id;
           const imageTitle = imageCard?.fields?.title;
 
-          //   return {
-          //     imgId,
-          //     singleImage,
-          //     imageTitle,
-          //     imageWidth,
-          //   };
-          // });
-
           return {
-            // imageRowContainer,
             imageGalleryCardsId,
             imgId,
             imageTitle,
@@ -107,9 +96,6 @@ export const useFetchData = () => {
           backgroundColor,
         };
       });
-
-      // console.log(response);
-      // console.log(data);
 
       setData(data);
       setLoading(false);

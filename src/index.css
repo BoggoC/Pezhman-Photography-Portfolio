@@ -10,7 +10,7 @@
 }
 
 :root {
-  font-family: Helvetica, Inter, system-ui, Avenir, Arial, sans-serif;
+  font-family: Helvetica, Arial, Inter, system-ui, Avenir, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 }
@@ -22,7 +22,7 @@ a {
 }
 
 .links a {
-  font-family: "Fjalla One", sans-serif;
+  font-family: "Fjalla One", Arial, sans-serif;
   font-weight: 400;
   font-style: normal;
 }

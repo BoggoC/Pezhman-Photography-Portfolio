@@ -26,11 +26,12 @@ const About = () => {
         return (
           <div
             className="wrapper"
+            key={aboutId}
             style={{ backgroundColor: `#${backgroundColor}` }}
           >
             <NavBar />
             <div className="about-container">
-              <div key={aboutId} className="about">
+              <div className="about">
                 <div className="about-title" style={{ color: `#${textColor}` }}>
                   <h2>{aboutAndContactTitle}</h2>
                 </div>

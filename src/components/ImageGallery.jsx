@@ -71,7 +71,10 @@ const ImageGallery = () => {
       <div className="wrapper">
         <article key={imageGalleryId} className="image-gallery">
           {imageGallery.map((e, i) => (
-            <div className={`image-row-container ${e.halfOrFullWIdth}`}>
+            <div
+              key={e.imgId}
+              className={`image-row-container ${e.halfOrFullWIdth}`}
+            >
               <div
                 className={i === active ? "active" : ""}
                 onClick={() => handleClick(i)}
@@ -88,8 +91,8 @@ const ImageGallery = () => {
               </div>
             </div>
           ))}
-          <Socials />
         </article>
+        <Socials />
       </div>
     </section>
   );
