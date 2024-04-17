@@ -1,5 +1,5 @@
 import { useFetchData } from "./fetchData";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import BackToTopBtn from "./BackToTopBtn";
 import Socials from "./Socials";
@@ -38,12 +38,17 @@ const ImageGallery = () => {
     }
   };
 
+  useEffect(() => {
+    if (show) {
+      document.body.style.overflow = "hidden";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [show]);
+
   if (loading) {
-    return (
-      <section className="landing-page">
-        <h2>Loading...</h2>
-      </section>
-    );
+    return <section className="landing-page"></section>;
   }
 
   return (

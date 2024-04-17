@@ -20,6 +20,7 @@ const ImageGalleryModal = ({
         <div
           className="modal-backdrop"
           onClick={onClose}
+          onScroll={onClose}
           style={{ backgroundColor: `#${backgroundColor}` }}
         />
         <div className="back-drop-btns" style={{ color: `#${textColor}` }}>

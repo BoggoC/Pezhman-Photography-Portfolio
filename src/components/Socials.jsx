@@ -4,11 +4,7 @@ const Socials = () => {
   const { loading, data } = useFetchData();
 
   if (loading) {
-    return (
-      <section className="landing-page">
-        <h2>Loading...</h2>
-      </section>
-    );
+    return <section className="landing-page"></section>;
   }
 
   return (

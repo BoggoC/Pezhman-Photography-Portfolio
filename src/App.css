@@ -34,10 +34,22 @@
   .image-gallery {
     padding: 0 8px;
   }
+
   .showBtn {
-    right: -100px;
+    position: fixed;
+    padding: 3px;
+    right: -100px !important;
     bottom: 25px !important;
     transform: translate(-130px) !important;
+    animation: slideLeft 1s !important;
+  }
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(-100%) !important;
+    }
+    100% {
+      transform: translateX(-130px) !important;
+    }
   }
 }
 
@@ -148,6 +160,7 @@
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
 .modal-close {
@@ -160,13 +173,17 @@
   width: 30px;
   height: 30px;
   line-height: 1.75em;
+  z-index: 20;
 }
 
 .navigation-next-prev .next-prev {
   position: fixed;
+
   top: 50%;
   font-size: 2em;
   cursor: pointer;
+  transform: translateY(-100%);
+  z-index: 20;
 }
 
 .next {
@@ -206,10 +223,10 @@
 }
 
 .slide-title {
-  padding-bottom: 3px;
+  padding-bottom: 10px;
   text-align: center;
   font-size: 14px;
-  font-weight: 100;
+  font-weight: 300;
 }
 
 .slide img {
