@@ -249,8 +249,10 @@
     padding: 3px;
     right: -100px !important;
     bottom: 25px !important;
+    font-size: clamp(1.5rem, 3vw, 3rem);
+    cursor: pointer;
     transform: translate(-130px) !important;
-    animation: slideLeft 1s !important;
+    animation: slideLeft 2s !important;
   }
   @keyframes slideLeft {
     0% {
