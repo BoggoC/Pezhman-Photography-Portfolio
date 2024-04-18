@@ -23,36 +23,6 @@
   padding: 4rem;
 }
 
-@media screen and (max-width: 480px) {
-  .image {
-    padding: 1.5rem 0.5rem;
-  }
-  .socials-container {
-    bottom: 16px !important;
-    left: 32px !important;
-  }
-  .image-gallery {
-    padding: 0 8px;
-  }
-
-  .showBtn {
-    position: fixed;
-    padding: 3px;
-    right: -100px !important;
-    bottom: 25px !important;
-    transform: translate(-130px) !important;
-    animation: slideLeft 1s !important;
-  }
-  @keyframes slideLeft {
-    0% {
-      transform: translateX(-100%) !important;
-    }
-    100% {
-      transform: translateX(-130px) !important;
-    }
-  }
-}
-
 /* =====NavBar===== */
 
 .nav-bar {
@@ -75,11 +45,10 @@
 /* =====About===== */
 
 .about-container {
-  height: 100vh;
 }
 
 .about {
-  position: fixed;
+  position: absolute;
   transform: translate(-50%, -50%);
   left: 50%;
   top: 50%;
@@ -93,6 +62,35 @@
 .about-text {
   text-align: left;
   min-width: 300px;
+}
+
+.show-more {
+  display: flex;
+  align-items: center;
+}
+
+.info-btn {
+  padding: 0 0 1px 0;
+}
+
+.show-more-text {
+  position: inherit;
+  text-align: left;
+  padding: 32px 0 64px;
+}
+
+.footer {
+  position: static;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: clamp(0.75rem, 0.9vw, 0.9rem);
+}
+
+.footer-obout {
+  padding: 64px 0;
 }
 
 .about-text a {
@@ -132,8 +130,8 @@
 /* =====Socials===== */
 
 .socials-container {
-  position: sticky;
-  bottom: 40px;
+  position: fixed !important;
+  bottom: 40px !important;
   left: 50px;
   max-width: clamp(1.5rem, 3vw, 3rem);
 }
@@ -232,4 +230,34 @@
 .slide img {
   max-width: 95vw;
   max-height: 90vh;
+}
+
+@media screen and (max-width: 480px) {
+  .image {
+    padding: 1.5rem 0.5rem;
+  }
+  .socials-container {
+    bottom: 16px !important;
+    left: 32px !important;
+  }
+  .image-gallery {
+    padding: 0 8px;
+  }
+
+  .showBtn {
+    position: fixed;
+    padding: 3px;
+    right: -100px !important;
+    bottom: 25px !important;
+    transform: translate(-130px) !important;
+    animation: slideLeft 1s !important;
+  }
+  @keyframes slideLeft {
+    0% {
+      transform: translateX(-100%) !important;
+    }
+    100% {
+      transform: translateX(-130px) !important;
+    }
+  }
 }

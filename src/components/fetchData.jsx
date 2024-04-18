@@ -37,8 +37,13 @@ export const useFetchData = () => {
           };
         });
 
-        const { aboutAndContactTitle, aboutAndContactText } =
-          aboutAndContactSection.fields;
+        const {
+          aboutAndContactTitle,
+          aboutAndContactText,
+          readMoreTitle,
+          readMoreText,
+          footer,
+        } = aboutAndContactSection.fields;
         const aboutId = aboutAndContactSection.sys.id;
         const options = {
           renderText: (text) => {
@@ -55,6 +60,8 @@ export const useFetchData = () => {
           aboutAndContactText,
           options
         );
+
+        const readMore = documentToReactComponents(readMoreText, options);
 
         const imageGalleryId = imageGallerySection.sys.id;
 
@@ -86,6 +93,9 @@ export const useFetchData = () => {
           aboutId,
           aboutAndContactTitle,
           aboutAndContactTxt,
+          readMoreTitle,
+          readMore,
+          footer,
           navBarId,
           about,
           heroTitle,
@@ -96,7 +106,7 @@ export const useFetchData = () => {
           backgroundColor,
         };
       });
-
+      console.log(data);
       setData(data);
       setLoading(false);
     } catch (error) {

@@ -16,6 +16,7 @@ const ImageGallery = () => {
   const imageGalleryId = imageGalleryData?.imageGalleryId;
   const textColor = imageGalleryData?.textColor;
   const backgroundColor = imageGalleryData?.backgroundColor;
+  const footer = imageGalleryData?.footer;
 
   const handleClick = (i) => {
     setActive(i);
@@ -96,6 +97,7 @@ const ImageGallery = () => {
               </div>
             </div>
           ))}
+          <div className="footer footer-other">{footer}</div>
         </article>
         <Socials />
       </div>
