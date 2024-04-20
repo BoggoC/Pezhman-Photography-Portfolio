@@ -2,12 +2,17 @@ import { useFetchData } from "./fetchData";
 import { useState } from "react";
 import NavBar from "./NavBar";
 import Socials from "./Socials";
-import { IoIosArrowUp } from "react-icons/io";
+import { IoIosArrowDown } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
+import BackToTopBtn from "./BackToTopBtn";
 
 const About = () => {
   const { loading, data } = useFetchData();
   const [readMoreToggle, setReadMoreToggle] = useState(false);
+
+  const aboutData = data[0];
+  const backgroundColor = aboutData?.backgroundColor;
+  const textColor = aboutData?.textColor;
 
   if (loading) {
     return <section className="landing-page"></section>;
@@ -15,7 +20,12 @@ const About = () => {
 
   return (
     <>
-      <section className="page">
+      <section
+        className="page"
+        style={{ backgroundColor: `#${backgroundColor}` }}
+      >
+        <NavBar />
+        <BackToTopBtn textColor={textColor} />
         {data.map((aboutComponent) => {
           const {
             aboutId,
@@ -24,17 +34,10 @@ const About = () => {
             readMoreTitle,
             readMore,
             footer,
-            backgroundColor,
             textColor,
           } = aboutComponent;
           return (
-            <div
-              className="wrapper"
-              key={aboutId}
-              style={{ backgroundColor: `#${backgroundColor}` }}
-            >
-              <NavBar />
-
+            <div className="wrapper" key={aboutId}>
               <div className="about-container">
                 <div className="about">
                   <div
@@ -59,7 +62,7 @@ const About = () => {
                       onClick={() => setReadMoreToggle(!readMoreToggle)}
                     >
                       {readMoreToggle ? (
-                        <IoIosArrowUp />
+                        <IoIosArrowDown />
                       ) : (
                         <IoIosArrowForward />
                       )}
@@ -74,7 +77,6 @@ const About = () => {
                       : `${readMore.toString().substring(0, 0)}`}
                     <div className=" footer footer-obout">{footer}</div>
                   </div>
-                  {/* <div className="about-text" style={{ color: `#${textColor}` }}> */}
                 </div>
               </div>
             </div>

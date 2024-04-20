@@ -106,7 +106,7 @@ export const useFetchData = () => {
           backgroundColor,
         };
       });
-      console.log(data);
+
       setData(data);
       setLoading(false);
     } catch (error) {
