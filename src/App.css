@@ -27,11 +27,6 @@
   padding: 4rem;
 }
 
-.image:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05),
-    0 10px 10px -5px rgba(0, 0, 0, 0.02);
-}
-
 /* =====NavBar===== */
 
 .nav-bar {
@@ -45,10 +40,6 @@
   padding: 16px 32px 48px;
   align-items: center;
   text-align: center;
-}
-
-.links a:hover {
-  color: hotpink !important;
 }
 
 /* =====About===== */
