@@ -56,11 +56,11 @@ const About = () => {
                     className="about-text show-more"
                     style={{ color: `#${textColor}` }}
                   >
-                    <p>{readMoreTitle}</p>
                     <div
                       className="info-btn show-more"
                       onClick={() => setReadMoreToggle(!readMoreToggle)}
                     >
+                      <p>{readMoreTitle}</p>
                       {readMoreToggle ? (
                         <IoIosArrowDown />
                       ) : (

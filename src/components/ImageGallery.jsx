@@ -40,6 +40,16 @@ const ImageGallery = () => {
   };
 
   useEffect(() => {
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        onModalClose();
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
+  useEffect(() => {
     if (show) {
       document.body.style.overflow = "hidden";
     }

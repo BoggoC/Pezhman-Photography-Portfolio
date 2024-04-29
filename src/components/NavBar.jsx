@@ -1,5 +1,5 @@
 import { useFetchData } from "./fetchData";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const { loading, data } = useFetchData();
@@ -16,24 +16,12 @@ const NavBar = () => {
           <nav key={navBarId} className="nav-bar">
             <div className="nav-bar-wrapper">
               <nav className="links">
-                <NavLink
-                  to="/"
-                  className={({ isActive }) =>
-                    isActive ? "link-active" : "none"
-                  }
-                  style={{ color: `#${textColor}` }}
-                >
+                <Link to="/" style={{ color: `#${textColor}` }}>
                   {heroTitle}
-                </NavLink>
-                <NavLink
-                  to="/aboutandcontact"
-                  className={({ isActive }) =>
-                    isActive ? "link-active" : "none"
-                  }
-                  style={{ color: `#${textColor}` }}
-                >
+                </Link>
+                <Link to="/aboutandcontact" style={{ color: `#${textColor}` }}>
                   {about}
-                </NavLink>
+                </Link>
               </nav>
             </div>
           </nav>
