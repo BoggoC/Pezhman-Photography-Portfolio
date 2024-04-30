@@ -27,6 +27,16 @@ const ImageGallery = () => {
     setShow(false);
   };
 
+  useEffect(() => {
+    const close = (e) => {
+      if (e.keyCode === 27) {
+        onModalClose();
+      }
+    };
+    window.addEventListener("keydown", close);
+    return () => window.removeEventListener("keydown", close);
+  }, []);
+
   const handleNext = () => {
     if (active < imageGallery.length - 1) {
       setActive(active + 1);
@@ -38,16 +48,6 @@ const ImageGallery = () => {
       setActive(active - 1);
     }
   };
-
-  useEffect(() => {
-    const close = (e) => {
-      if (e.keyCode === 27) {
-        onModalClose();
-      }
-    };
-    window.addEventListener("keydown", close);
-    return () => window.removeEventListener("keydown", close);
-  }, []);
 
   useEffect(() => {
     if (show) {

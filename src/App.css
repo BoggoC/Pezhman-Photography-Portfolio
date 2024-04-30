@@ -18,13 +18,16 @@
 
 .twoImages {
   width: 50%;
-
   display: inline-block;
   vertical-align: middle;
 }
 
+.image-row-container .image {
+  vertical-align: bottom;
+}
+
 .image {
-  padding: 4rem;
+  /* padding: 4rem; */
 }
 
 /* =====NavBar===== */
