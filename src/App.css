@@ -22,12 +22,12 @@
   vertical-align: middle;
 }
 
-.image-row-container .image {
+/* .image-row-container .image {
   vertical-align: bottom;
-}
+} */
 
 .image {
-  /* padding: 4rem; */
+  padding: 4rem;
 }
 
 /* =====NavBar===== */
@@ -40,7 +40,8 @@
 .links {
   display: flex;
   justify-content: space-between;
-  padding: 16px 32px 48px;
+  /* padding: 16px 32px 48px; */
+  padding: 16px 32px 0;
   align-items: center;
   text-align: center;
 }
