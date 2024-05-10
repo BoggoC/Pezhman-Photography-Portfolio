@@ -1,5 +1,5 @@
 import { useFetchData } from "./fetchData";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import NavBar from "./NavBar";
 import BackToTopBtn from "./BackToTopBtn";
 import Socials from "./Socials";
@@ -11,6 +11,10 @@ const ImageGallery = () => {
   const [active, setActive] = useState(0);
   const [show, setShow] = useState(false);
 
+  const [lastScrollY, setLastScrollY] = useState(0);
+  const [scrollAmount, setScrollAmount] = useState(0);
+  const [timerRef, setTimerRef] = useState(0);
+
   const imageGalleryData = data[0];
   const imageGallery = imageGalleryData?.imageGallery;
   const imageGalleryId = imageGalleryData?.imageGalleryId;
@@ -21,6 +25,29 @@ const ImageGallery = () => {
   const handleClick = (i) => {
     setActive(i);
     setShow(true);
+  };
+
+  const handleScroll = (e) => {
+    setScrollAmount(
+      scrollAmount + Math.abs(Math.round(window.scrollY) - lastScrollY)
+    );
+    setLastScrollY(window.scrollY);
+    console.log(`Scroll amount ${scrollAmount}`);
+
+    clearTimeout(timerRef);
+    if (scrollAmount > 100) {
+      console.log("SCROLLED TOO MUCH, closing modal");
+      setScrollAmount(0);
+      onModalClose();
+      return;
+    }
+
+    setTimerRef(
+      setTimeout(() => {
+        console.log("TIMES UP, resetting scroll amount");
+        setScrollAmount(0);
+      }, 300)
+    );
   };
 
   const onModalClose = () => {
@@ -38,10 +65,22 @@ const ImageGallery = () => {
   }, []);
 
   const handleNext = () => {
-    if (active < imageGallery.length - 1) {
+    if (active < imageGallery?.length - 1) {
       setActive(active + 1);
     }
   };
+
+  useEffect(() => {
+    const arrowRight = (e) => {
+      if (e.keyCode === 39) {
+        handleNext();
+      }
+    };
+    window.addEventListener("keydown", arrowRight);
+    return () => {
+      window.removeEventListener("keydown", arrowRight);
+    };
+  }, [active]);
 
   const handlePrev = () => {
     if (active > 0) {
@@ -50,13 +89,30 @@ const ImageGallery = () => {
   };
 
   useEffect(() => {
-    if (show) {
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
+    const arrowLeft = (e) => {
+      if (e.keyCode === 37) {
+        handlePrev();
+      }
     };
-  }, [show]);
+    window.addEventListener("keydown", arrowLeft);
+    return () => window.removeEventListener("keydown", arrowLeft);
+  }, [active]);
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, [scrollAmount, lastScrollY]);
+
+  // useEffect(() => {
+  //   if (show) {
+  //     document.body.style.overflow = "hidden";
+  //   }
+  //   return () => {
+  //     document.body.style.overflow = "unset";
+  //   };
+  // }, [show]);
 
   if (loading) {
     return <section className="landing-page"></section>;
