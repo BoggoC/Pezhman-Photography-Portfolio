@@ -1,5 +1,5 @@
 import { useFetchData } from "./fetchData";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import BackToTopBtn from "./BackToTopBtn";
 import Socials from "./Socials";
@@ -32,11 +32,9 @@ const ImageGallery = () => {
       scrollAmount + Math.abs(Math.round(window.scrollY) - lastScrollY)
     );
     setLastScrollY(window.scrollY);
-    console.log(`Scroll amount ${scrollAmount}`);
 
     clearTimeout(timerRef);
     if (scrollAmount > 100) {
-      console.log("SCROLLED TOO MUCH, closing modal");
       setScrollAmount(0);
       onModalClose();
       return;
@@ -44,7 +42,6 @@ const ImageGallery = () => {
 
     setTimerRef(
       setTimeout(() => {
-        console.log("TIMES UP, resetting scroll amount");
         setScrollAmount(0);
       }, 300)
     );
@@ -104,15 +101,6 @@ const ImageGallery = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, [scrollAmount, lastScrollY]);
-
-  // useEffect(() => {
-  //   if (show) {
-  //     document.body.style.overflow = "hidden";
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = "unset";
-  //   };
-  // }, [show]);
 
   if (loading) {
     return <section className="landing-page"></section>;

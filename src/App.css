@@ -85,6 +85,10 @@
   padding: 32px 0 64px;
 }
 
+.show-more-text h6 {
+  font-weight: 400 !important;
+}
+
 .footer {
   position: static;
   left: 0;
@@ -96,7 +100,7 @@
   color: gray;
 }
 
-.footer-obout {
+.footer-about {
   padding: 64px 0 12px;
   text-align: start;
 }
@@ -156,7 +160,7 @@
   width: 100vw;
   height: 100vh;
   /* background-color: rgba(0, 0, 0, 0.2); */
-  opacity: 90%;
+  opacity: 0.9;
   top: 0;
   left: 0;
 }

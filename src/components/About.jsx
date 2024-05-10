@@ -75,7 +75,7 @@ const About = () => {
                     {readMoreToggle
                       ? readMore
                       : `${readMore.toString().substring(0, 0)}`}
-                    <div className=" footer footer-obout">{footer}</div>
+                    <div className=" footer footer-about">{footer}</div>
                   </div>
                 </div>
               </div>
